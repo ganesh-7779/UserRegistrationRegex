@@ -57,6 +57,23 @@ public class UserRegistrationRegex {
         }
     }
     /**
+     * Checks for the correct phone number
+     * If correct assigns it to mobileNumber of object User
+     */
+    public static void getPhoneNumber() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your phone number");
+        String phone= sc.next();
+        boolean check = Pattern.matches("^[1-9][0-9][1-9]{10}$", phone);
+        if(check) {
+            user1.setMobile(phone);
+        }
+        else {
+            System.out.println("Phone number invalid , enter correct number");
+            getPhoneNumber();
+        }
+    }
+    /**
      * Checks for the correct password format
      * If correct assigns it to password of object User
      */
@@ -64,7 +81,7 @@ public class UserRegistrationRegex {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your password");
         String password= sc.next();
-        boolean check = Pattern.matches("[a-zA-z0-9!@#$%^&*()_+=-{};':<>,./?~`]{8,}", password);
+        boolean check = Pattern.matches("^(?=.*[A-Z])[a-zA-z0-9!@#$%^&*()_+=-{};':<>,./?~`]{8,}$", password);
         if(check) {
             user1.setPassword(password);
         }
@@ -77,6 +94,7 @@ public class UserRegistrationRegex {
         getFirstName();
         getLastName();
         getGmail();
+        getPhoneNumber();
         getPassword();
     }
 }
