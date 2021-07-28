@@ -22,6 +22,7 @@ public class UserRegistrationRegex {
         } else {
             // else user get instruction to type first name as per pattern
             System.out.println("First name start with Cap and has minimum 3 characters");
+            getFirstName();
         }
     }
 
@@ -39,6 +40,7 @@ public class UserRegistrationRegex {
         } else {
             // else user get instruction to type last name as per pattern
             System.out.println("Last name start with Cap and has minimum 3 characters");
+            getLastName();
         }
     }
     public static void getGmail() {
@@ -50,7 +52,8 @@ public class UserRegistrationRegex {
             // user last name will get added in user1 object
         } else {
             // else user get instruction to type last name as per pattern
-            System.out.println("Last name start with Cap and has minimum 3 characters");
+            System.out.println("Email invalid , enter correct email");
+            getGmail();
         }
     }
 
