@@ -10,7 +10,7 @@ public class UserRegistrationRegex {
 
     /**
      * getFirstName is a method for validation user First name by using regex
-     *               pattern matches method .
+     * pattern matches method.
      */
     public static void getFirstName() {
         System.out.println("Enter First Name");
@@ -43,6 +43,12 @@ public class UserRegistrationRegex {
             getLastName();
         }
     }
+    /**
+     * Gets the email address from console
+     * Checks if it matches our regex pattern
+     * If it matches set the email of object user1 to entered email address
+     * If not tells user to enter email address again
+     */
     public static void getGmail() {
         System.out.println("Enter Gmail");
         String gmail = sc.next();
@@ -56,10 +62,28 @@ public class UserRegistrationRegex {
             getGmail();
         }
     }
+    /**
+     * Checks for the correct phone number
+     * If correct assigns it to mobileNumber of object User
+     */
+    public static void getPhoneNumber() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your phone number");
+        String phone= sc.next();
+        boolean check = Pattern.matches("^[1-9][0-9][1-9]{10}$", phone);
+        if(check) {
+            user1.setMobile(phone);
+        }
+        else {
+            System.out.println("Phone number invalid , enter correct number");
+            getPhoneNumber();
+        }
+    }
 
     public static void main(String[] args) {
         getFirstName();
         getLastName();
         getGmail();
+        getPhoneNumber();
     }
 }
