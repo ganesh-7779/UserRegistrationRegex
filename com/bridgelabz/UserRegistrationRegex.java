@@ -22,6 +22,7 @@ public class UserRegistrationRegex {
         } else {
             // else user get instruction to type first name as per pattern
             System.out.println("First name start with Cap and has minimum 3 characters");
+            getFirstName();
         }
     }
 
@@ -39,6 +40,7 @@ public class UserRegistrationRegex {
         } else {
             // else user get instruction to type last name as per pattern
             System.out.println("Last name start with Cap and has minimum 3 characters");
+            getLastName();
         }
     }
     public static void getGmail() {
@@ -50,13 +52,31 @@ public class UserRegistrationRegex {
             // user last name will get added in user1 object
         } else {
             // else user get instruction to type last name as per pattern
-            System.out.println("Last name start with Cap and has minimum 3 characters");
+            System.out.println("Email invalid , enter correct email");
+            getGmail();
         }
     }
-
+    /**
+     * Checks for the correct password format
+     * If correct assigns it to password of object User
+     */
+    public static void getPassword() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your password");
+        String password= sc.next();
+        boolean check = Pattern.matches("[a-zA-z0-9!@#$%^&*()_+=-{};':<>,./?~`]{8,}", password);
+        if(check) {
+            user1.setPassword(password);
+        }
+        else {
+            System.out.println("Password invalid , enter again ");
+            getPassword();
+        }
+    }
     public static void main(String[] args) {
         getFirstName();
         getLastName();
         getGmail();
+        getPassword();
     }
 }
